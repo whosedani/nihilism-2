@@ -258,7 +258,8 @@ a { color: inherit; text-decoration: none; }
 .sound-btn {
     position: absolute;
     bottom: 80px;
-    left: 32px;
+    left: 50%;
+    transform: translateX(-50%);
     z-index: 2;
     display: flex;
     align-items: center;
@@ -273,7 +274,7 @@ a { color: inherit; text-decoration: none; }
     color: var(--ash);
     font-family: var(--font-body);
     font-style: italic;
-    font-size: 15px;
+    font-size: 16px;
     transition: border-color 0.3s;
 }
 .sound-btn:hover { border-color: var(--marble); }
