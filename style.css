@@ -281,10 +281,14 @@ a { color: inherit; text-decoration: none; }
 
 /* ===== TICKER ===== */
 .ticker {
-    width: 100%;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    z-index: 3;
     overflow: hidden;
     background: var(--blood);
-    padding: 10px 0;
+    padding: 16px 0;
     white-space: nowrap;
 }
 
@@ -296,15 +300,15 @@ a { color: inherit; text-decoration: none; }
 .ticker__item {
     font-family: var(--font-display);
     font-weight: 700;
-    font-size: 13px;
+    font-size: 15px;
     color: var(--marble);
     letter-spacing: 3px;
 }
 
 .ticker__sep {
-    font-size: 13px;
+    font-size: 15px;
     color: rgba(232, 228, 223, 0.4);
-    margin: 0 24px;
+    margin: 0 28px;
 }
 
 @keyframes ticker-scroll {
