@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NIHILISM — Admin</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@400;700&family=EB+Garamond:ital,wght@0,400;0,600;1,400&family=Inconsolata:wght@400&display=swap" rel="stylesheet">
+    <style>
+        *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: 'EB Garamond', serif;
+            background: #0B0B0F;
+            color: #E8E4DF;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 24px;
+        }
+        .card {
+            width: 100%;
+            max-width: 440px;
+            background: #161619;
+            border: 1px solid rgba(74,85,104,0.15);
+            padding: 40px 32px;
+        }
+        .card__title {
+            font-family: 'Bricolage Grotesque', sans-serif;
+            font-weight: 700;
+            font-size: 18px;
+            color: #6B1C23;
+            letter-spacing: 2px;
+            margin-bottom: 8px;
+        }
+        .card__sub {
+            font-style: italic;
+            font-size: 14px;
+            color: #7A7670;
+            margin-bottom: 32px;
+        }
+        label {
+            display: block;
+            font-family: 'Bricolage Grotesque', sans-serif;
+            font-size: 11px;
+            font-weight: 700;
+            color: #6B1C23;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            margin-bottom: 6px;
+        }
+        input {
+            width: 100%;
+            font-family: 'Inconsolata', monospace;
+            font-size: 13px;
+            padding: 10px 12px;
+            background: #0B0B0F;
+            border: 1px solid rgba(74,85,104,0.2);
+            color: #E8E4DF;
+            margin-bottom: 20px;
+            outline: none;
+            transition: border-color 0.3s;
+        }
+        input:focus { border-color: #6B1C23; }
+        button {
+            width: 100%;
+            font-family: 'EB Garamond', serif;
+            font-size: 15px;
+            padding: 12px;
+            background: transparent;
+            border: 1px solid #6B1C23;
+            color: #E8E4DF;
+            cursor: pointer;
+            transition: background 0.3s;
+        }
+        button:hover { background: rgba(107,28,35,0.15); }
+        .msg {
+            font-style: italic;
+            font-size: 13px;
+            color: #7A7670;
+            margin-top: 16px;
+            text-align: center;
+            min-height: 20px;
+        }
+        .msg.error { color: #6B1C23; }
+        .msg.success { color: #4A5568; }
+        .hidden { display: none; }
+    </style>
+</head>
+<body>
+    <!-- Login -->
+    <div class="card" id="login-card">
+        <div class="card__title">NIHILISM</div>
+        <p class="card__sub">admin access — prove you exist</p>
+        <label>PASSWORD</label>
+        <input type="password" id="password" placeholder="enter password">
+        <button id="login-btn">Enter the Void</button>
+        <p class="msg" id="login-msg"></p>
+    </div>
+
+    <!-- Config -->
+    <div class="card hidden" id="config-card">
+        <div class="card__title">NIHILISM</div>
+        <p class="card__sub">configure the meaningless</p>
+        <label>CONTRACT ADDRESS</label>
+        <input type="text" id="cfg-ca" placeholder="contract address">
+        <label>TWITTER URL</label>
+        <input type="text" id="cfg-twitter" placeholder="https://x.com/...">
+        <label>COMMUNITY URL</label>
+        <input type="text" id="cfg-community" placeholder="https://t.me/...">
+        <label>BUY URL</label>
+        <input type="text" id="cfg-buy" placeholder="https://pump.fun/...">
+        <button id="save-btn">Save Configuration</button>
+        <p class="msg" id="save-msg"></p>
+    </div>
+
+    <script>
+        let authHash = '';
+
+        async function sha256(text) {
+            const buf = await crypto.subtle.digest('SHA-256', new TextEncoder().encode(text));
+            return Array.from(new Uint8Array(buf)).map(b => b.toString(16).padStart(2, '0')).join('');
+        }
+
+        document.getElementById('login-btn').addEventListener('click', async () => {
+            const pw = document.getElementById('password').value.trim();
+            if (!pw) return;
+            authHash = await sha256(pw);
+            try {
+                const r = await fetch('/api/config', { headers: { 'Authorization': 'Bearer ' + authHash } });
+                if (!r.ok) throw new Error('wrong password');
+                const cfg = await r.json();
+                document.getElementById('cfg-ca').value = cfg.ca || '';
+                document.getElementById('cfg-twitter').value = cfg.twitter || '';
+                document.getElementById('cfg-community').value = cfg.community || '';
+                document.getElementById('cfg-buy').value = cfg.buy || '';
+                document.getElementById('login-card').classList.add('hidden');
+                document.getElementById('config-card').classList.remove('hidden');
+            } catch {
+                const msg = document.getElementById('login-msg');
+                msg.textContent = 'wrong password. the void rejects you.';
+                msg.className = 'msg error';
+            }
+        });
+
+        document.getElementById('password').addEventListener('keydown', e => {
+            if (e.key === 'Enter') document.getElementById('login-btn').click();
+        });
+
+        document.getElementById('save-btn').addEventListener('click', async () => {
+            const body = {
+                ca: document.getElementById('cfg-ca').value.trim(),
+                twitter: document.getElementById('cfg-twitter').value.trim(),
+                community: document.getElementById('cfg-community').value.trim(),
+                buy: document.getElementById('cfg-buy').value.trim()
+            };
+            const msg = document.getElementById('save-msg');
+            try {
+                const r = await fetch('/api/config', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json', 'Authorization': 'Bearer ' + authHash },
+                    body: JSON.stringify(body)
+                });
+                if (!r.ok) throw new Error('save failed');
+                msg.textContent = 'saved. not that it changes anything.';
+                msg.className = 'msg success';
+            } catch {
+                msg.textContent = 'failed. even saving is futile.';
+                msg.className = 'msg error';
+            }
+        });
+    </script>
+</body>
+</html>

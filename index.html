@@ -1,0 +1,317 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NIHILISM</title>
+    <meta name="description" content="The rejection of all religious and moral principles, in the belief that life is meaningless.">
+    <link rel="icon" href="/favicon.ico">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@400;700&family=EB+Garamond:ital,wght@0,400;0,600;1,400&family=Inconsolata:wght@400&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <!-- Grain overlay -->
+    <svg class="grain" width="100%" height="100%">
+        <filter id="grain-filter">
+            <feTurbulence type="fractalNoise" baseFrequency="0.65" numOctaves="3" stitchTiles="stitch"/>
+        </filter>
+        <rect width="100%" height="100%" filter="url(#grain-filter)"/>
+    </svg>
+
+    <!-- Vertical column lines -->
+    <div class="column-line column-line--left"></div>
+    <div class="column-line column-line--right"></div>
+
+    <!-- Toast -->
+    <div class="toast" id="toast">copied. not that it matters.</div>
+
+    <!-- Nav -->
+    <nav class="nav">
+        <div class="nav__brand">NIHILISM</div>
+        <div class="nav__links">
+            <a href="#philosophy" class="nav__link">Philosophy</a>
+            <a href="#thinkers" class="nav__link">Thinkers</a>
+            <a href="#gallery" class="nav__link">Gallery</a>
+            <a href="#buy" class="nav__link">Buy</a>
+        </div>
+        <div class="nav__right">
+            <span class="nav__ca" id="nav-ca" title="Copy contract address">loading...</span>
+            <a href="#" class="nav__community" id="nav-community" target="_blank" rel="noopener" aria-label="Community">
+                <svg width="20" height="16" viewBox="0 0 20 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <circle cx="4" cy="6" r="2.5" stroke="currentColor" stroke-width="1.2"/>
+                    <circle cx="10" cy="4" r="2.5" stroke="currentColor" stroke-width="1.2"/>
+                    <circle cx="16" cy="6" r="2.5" stroke="currentColor" stroke-width="1.2"/>
+                    <path d="M0 14c0-2.2 1.8-4 4-4s4 1.8 4 4" stroke="currentColor" stroke-width="1.2" fill="none"/>
+                    <path d="M6 12c0-2.2 1.8-4 4-4s4 1.8 4 4" stroke="currentColor" stroke-width="1.2" fill="none"/>
+                    <path d="M12 14c0-2.2 1.8-4 4-4s4 1.8 4 4" stroke="currentColor" stroke-width="1.2" fill="none"/>
+                </svg>
+            </a>
+        </div>
+    </nav>
+
+    <!-- I — HERO -->
+    <section class="hero" id="hero">
+        <video class="hero__video" id="hero-video" autoplay loop muted playsinline>
+            <source src="static/hero.mp4" type="video/mp4">
+        </video>
+        <div class="hero__overlay"></div>
+
+        <button class="sound-btn" id="sound-btn">
+            <span class="sound-btn__icon">🔇</span>
+            <span class="sound-btn__text">sound</span>
+        </button>
+
+        <div class="hero__content">
+            <h1 class="hero__title">NIHILISM</h1>
+            <p class="hero__definition">"the rejection of all religious and moral principles, in the belief that life is meaningless."</p>
+            <p class="hero__source">— Oxford English Dictionary</p>
+            <div class="hero__actions">
+                <a href="#" class="btn btn--primary" id="btn-buy">Buy $NIHILISM</a>
+                <a href="#" class="btn btn--secondary" id="btn-community" target="_blank" rel="noopener">Community</a>
+            </div>
+        </div>
+
+        <div class="hero__scroll">SCROLL TO DESCEND</div>
+    </section>
+
+    <!-- II — PHILOSOPHY -->
+    <section class="section section--obsidian" id="philosophy">
+        <div class="section__container">
+            <span class="section__label">PHILOSOPHY</span>
+            <h2 class="section__title">What Is Nihilism</h2>
+            <div class="philosophy">
+                <div class="philosophy__text">
+                    <p>Nihilism is the philosophical position that existence has no inherent meaning, purpose, or intrinsic value. Derived from the Latin "nihil" — nothing — it challenges every assumption humanity has built: that morality is real, that truth is objective, that life has a point.</p>
+                    <p>The term entered Western philosophy through Friedrich Jacobi in 1799, but its roots run deeper — through Buddhist śūnyatā (emptiness), through the Greek skeptics, through the Ecclesiastes: "Vanity of vanities, all is vanity."</p>
+                    <p>There is no single nihilism. It fractures into branches, each dismantling a different pillar of human certainty:</p>
+                </div>
+                <div class="philosophy__branches">
+                    <div class="branch-card" data-reveal>
+                        <h3 class="branch-card__title">Existential Nihilism</h3>
+                        <p class="branch-card__text">Life has no inherent meaning. The universe is indifferent to human existence. You were born without consent into a reality without instruction manual.</p>
+                    </div>
+                    <div class="branch-card" data-reveal>
+                        <h3 class="branch-card__title">Moral Nihilism</h3>
+                        <p class="branch-card__text">No act is inherently right or wrong. Morality is a human construct — a shared hallucination enforced by social pressure. Murder is not "wrong" — it is merely punished.</p>
+                    </div>
+                    <div class="branch-card" data-reveal>
+                        <h3 class="branch-card__title">Epistemological Nihilism</h3>
+                        <p class="branch-card__text">True knowledge is impossible. Every "fact" is filtered through biased perception. You cannot know anything with certainty — including this statement.</p>
+                    </div>
+                    <div class="branch-card" data-reveal>
+                        <h3 class="branch-card__title">Political Nihilism</h3>
+                        <p class="branch-card__text">All political structures are arbitrary power arrangements disguised as necessity. Governments, laws, borders — fiction enforced at gunpoint.</p>
+                    </div>
+                    <div class="branch-card" data-reveal>
+                        <h3 class="branch-card__title">Cosmic Nihilism</h3>
+                        <p class="branch-card__text">Humanity is an insignificant speck in an incomprehensibly vast universe that will not notice when we're gone. The sun will consume the earth and nothing will have mattered.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- III — THINKERS -->
+    <section class="section section--charcoal" id="thinkers">
+        <div class="section__container">
+            <span class="section__label">THINKERS</span>
+            <h2 class="section__title">The Architects of Nothing</h2>
+            <p class="section__subtitle">"The men who looked into the void — and the void that looked back."</p>
+
+            <div class="thinker" data-reveal>
+                <div class="thinker__image-wrap">
+                    <img class="thinker__image" src="static/thinkers/nietzsche.png" alt="Friedrich Nietzsche" loading="lazy">
+                </div>
+                <div class="thinker__content">
+                    <h3 class="thinker__name">Friedrich Nietzsche</h3>
+                    <span class="thinker__meta">1844 – 1900 · German</span>
+                    <blockquote class="thinker__quote">"God is dead. God remains dead. And we have killed him."</blockquote>
+                    <p class="thinker__bio">The man who named the crisis. Nietzsche saw that the Enlightenment had killed God — not as a being, but as the foundation of all Western values. Without God, morality, purpose, and truth lose their anchor. He called this "the death of God" and warned that humanity was not ready for the consequences. His response was not despair but creation — the Übermensch, the human who creates their own values in a meaningless world. He went insane at 44. The void won.</p>
+                    <span class="thinker__works">Thus Spoke Zarathustra (1883) · Beyond Good and Evil (1886) · The Will to Power (1901)</span>
+                </div>
+            </div>
+
+            <div class="thinker" data-reveal>
+                <div class="thinker__image-wrap">
+                    <img class="thinker__image" src="static/thinkers/camus.png" alt="Albert Camus" loading="lazy">
+                </div>
+                <div class="thinker__content">
+                    <h3 class="thinker__name">Albert Camus</h3>
+                    <span class="thinker__meta">1913 – 1960 · French-Algerian</span>
+                    <blockquote class="thinker__quote">"One must imagine Sisyphus happy."</blockquote>
+                    <p class="thinker__bio">Camus rejected the label "nihilist" — he called himself an absurdist. But his starting point is pure nihilism: the universe is silent, meaningless, indifferent. Humans scream for meaning into a void that does not answer. This gap — between our need and reality's silence — is the Absurd. His answer: neither suicide nor faith, but revolt. Keep pushing the boulder up the hill. Not because it reaches the top. Because the act of pushing is itself the meaning. He died in a car crash at 46, a manuscript of an unfinished novel in his bag.</p>
+                    <span class="thinker__works">The Stranger (1942) · The Myth of Sisyphus (1942) · The Rebel (1951)</span>
+                </div>
+            </div>
+
+            <div class="thinker" data-reveal>
+                <div class="thinker__image-wrap">
+                    <img class="thinker__image" src="static/thinkers/schopenhauer.png" alt="Arthur Schopenhauer" loading="lazy">
+                </div>
+                <div class="thinker__content">
+                    <h3 class="thinker__name">Arthur Schopenhauer</h3>
+                    <span class="thinker__meta">1788 – 1860 · German</span>
+                    <blockquote class="thinker__quote">"Life swings like a pendulum between pain and boredom."</blockquote>
+                    <p class="thinker__bio">The philosopher of pessimism. Schopenhauer argued that the world is driven by a blind, purposeless force — the Will — that creates endless suffering through desire. Every satisfied want creates a new want. Every pleasure is merely the temporary absence of pain. His solution was radical: deny the Will through asceticism, aesthetic contemplation, and compassion. Art — especially music — offers temporary escape from the cycle. He lived with a poodle named Atma ("World Soul") and hated Hegel with a passion.</p>
+                    <span class="thinker__works">The World as Will and Representation (1818) · On the Suffering of the World (1850)</span>
+                </div>
+            </div>
+
+            <div class="thinker" data-reveal>
+                <div class="thinker__image-wrap">
+                    <img class="thinker__image" src="static/thinkers/kierkegaard.png" alt="Søren Kierkegaard" loading="lazy">
+                </div>
+                <div class="thinker__content">
+                    <h3 class="thinker__name">Søren Kierkegaard</h3>
+                    <span class="thinker__meta">1813 – 1855 · Danish</span>
+                    <blockquote class="thinker__quote">"The most common form of despair is not being who you are."</blockquote>
+                    <p class="thinker__bio">The father of existentialism began with dread. Kierkegaard identified three stages of existence: the aesthetic (pleasure-seeking), the ethical (duty-bound), and the religious (faith). Most people never leave the first stage — they live in despair without knowing it, defined by others' expectations. The cure, he argued, requires a "leap of faith" — not into logic, but into the absurd. He wrote under pseudonyms, lived in anguish, and died at 42 after collapsing in the street.</p>
+                    <span class="thinker__works">Either/Or (1843) · The Sickness Unto Death (1849) · Fear and Trembling (1843)</span>
+                </div>
+            </div>
+
+            <div class="thinker" data-reveal>
+                <div class="thinker__image-wrap">
+                    <img class="thinker__image" src="static/thinkers/cioran.png" alt="Emil Cioran" loading="lazy">
+                </div>
+                <div class="thinker__content">
+                    <h3 class="thinker__name">Emil Cioran</h3>
+                    <span class="thinker__meta">1911 – 1995 · Romanian-French</span>
+                    <blockquote class="thinker__quote">"It is not worth the bother of killing yourself, since you always kill yourself too late."</blockquote>
+                    <p class="thinker__bio">The philosopher of insomnia. Cioran wrote in aphorisms — razor-sharp, blackly funny, devastating. Born in Romania, he moved to Paris and switched from Romanian to French, as if changing languages could change reality. His work reads like a suicide note written by someone who's too amused to follow through. Every sentence is a knife. Every paragraph is beautiful in its ugliness. He turned despair into an art form and suffering into literature.</p>
+                    <span class="thinker__works">On the Heights of Despair (1934) · A Short History of Decay (1949) · The Trouble with Being Born (1973)</span>
+                </div>
+            </div>
+
+            <div class="thinker" data-reveal>
+                <div class="thinker__image-wrap">
+                    <img class="thinker__image" src="static/thinkers/sartre.png" alt="Jean-Paul Sartre" loading="lazy">
+                </div>
+                <div class="thinker__content">
+                    <h3 class="thinker__name">Jean-Paul Sartre</h3>
+                    <span class="thinker__meta">1905 – 1980 · French</span>
+                    <blockquote class="thinker__quote">"Man is condemned to be free."</blockquote>
+                    <p class="thinker__bio">Existence precedes essence — Sartre's central claim. There is no human nature, no God designing you with a purpose. You are thrown into existence first, and only then do you define yourself through choices. This radical freedom is not liberating — it's terrifying. You are fully responsible for everything you become, with no one to blame and no script to follow. "Bad faith" is pretending you have no choice. Most people live in bad faith. He refused the Nobel Prize.</p>
+                    <span class="thinker__works">Being and Nothingness (1943) · Nausea (1938) · Existentialism Is a Humanism (1946)</span>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- IV — QUOTES -->
+    <section class="section section--obsidian" id="quotes">
+        <div class="section__container">
+            <span class="section__label">WORDS</span>
+            <h2 class="section__title">Quotes That Stare Back</h2>
+            <div class="quotes-grid">
+                <div class="quote-card" data-reveal>
+                    <p class="quote-card__text">"There is but one truly serious philosophical problem, and that is suicide."</p>
+                    <span class="quote-card__author">— Camus</span>
+                </div>
+                <div class="quote-card" data-reveal>
+                    <p class="quote-card__text">"To live is to suffer. To survive is to find some meaning in the suffering."</p>
+                    <span class="quote-card__author">— Nietzsche</span>
+                </div>
+                <div class="quote-card" data-reveal>
+                    <p class="quote-card__text">"Every existing thing is born without reason, prolongs itself out of weakness, and dies by chance."</p>
+                    <span class="quote-card__author">— Sartre</span>
+                </div>
+                <div class="quote-card" data-reveal>
+                    <p class="quote-card__text">"I have always lived on the edge of my body, of my ideas, on the edge of everything."</p>
+                    <span class="quote-card__author">— Cioran</span>
+                </div>
+                <div class="quote-card" data-reveal>
+                    <p class="quote-card__text">"The thought of suicide is a great consolation: by means of it one gets through many a dark night."</p>
+                    <span class="quote-card__author">— Nietzsche</span>
+                </div>
+                <div class="quote-card" data-reveal>
+                    <p class="quote-card__text">"We are all sentenced to solitary confinement inside our own skins, for life."</p>
+                    <span class="quote-card__author">— Tennessee Williams</span>
+                </div>
+                <div class="quote-card" data-reveal>
+                    <p class="quote-card__text">"In the depths of winter, I finally learned that within me there lay an invincible summer."</p>
+                    <span class="quote-card__author">— Camus</span>
+                </div>
+                <div class="quote-card" data-reveal>
+                    <p class="quote-card__text">"Is man merely a mistake of God's? Or God merely a mistake of man's?"</p>
+                    <span class="quote-card__author">— Nietzsche</span>
+                </div>
+                <div class="quote-card" data-reveal>
+                    <p class="quote-card__text">"Hell is other people."</p>
+                    <span class="quote-card__author">— Sartre</span>
+                </div>
+                <div class="quote-card" data-reveal>
+                    <p class="quote-card__text">"Not to be born is, beyond all estimation, best."</p>
+                    <span class="quote-card__author">— Sophocles</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- V — GALLERY -->
+    <section class="section section--charcoal" id="gallery">
+        <div class="section__container">
+            <span class="section__label">GALLERY</span>
+            <h2 class="section__title">Aesthetic of the Void</h2>
+            <p class="section__subtitle">"Images that need no explanation."</p>
+            <div class="gallery-grid">
+                <img class="gallery-img" src="static/gallery/1.png" alt="" loading="lazy" data-reveal>
+                <img class="gallery-img" src="static/gallery/2.png" alt="" loading="lazy" data-reveal>
+                <img class="gallery-img" src="static/gallery/3.png" alt="" loading="lazy" data-reveal>
+                <img class="gallery-img" src="static/gallery/4.png" alt="" loading="lazy" data-reveal>
+                <img class="gallery-img" src="static/gallery/5.png" alt="" loading="lazy" data-reveal>
+                <img class="gallery-img" src="static/gallery/6.png" alt="" loading="lazy" data-reveal>
+                <img class="gallery-img" src="static/gallery/7.png" alt="" loading="lazy" data-reveal>
+                <img class="gallery-img" src="static/gallery/8.png" alt="" loading="lazy" data-reveal>
+                <img class="gallery-img" src="static/gallery/9.png" alt="" loading="lazy" data-reveal>
+                <img class="gallery-img" src="static/gallery/10.png" alt="" loading="lazy" data-reveal>
+                <img class="gallery-img" src="static/gallery/11.png" alt="" loading="lazy" data-reveal>
+                <img class="gallery-img" src="static/gallery/12.png" alt="" loading="lazy" data-reveal>
+                <img class="gallery-img" src="static/gallery/13.png" alt="" loading="lazy" data-reveal>
+                <img class="gallery-img" src="static/gallery/14.png" alt="" loading="lazy" data-reveal>
+                <img class="gallery-img" src="static/gallery/15.png" alt="" loading="lazy" data-reveal>
+                <img class="gallery-img" src="static/gallery/16.png" alt="" loading="lazy" data-reveal>
+            </div>
+        </div>
+    </section>
+
+    <!-- VI — BUY -->
+    <section class="section section--obsidian" id="buy">
+        <div class="section__container">
+            <span class="section__label">THE ABSURD TRADE</span>
+            <p class="buy__intro">Buying a token named after the philosophy that nothing has value is the most perfectly absurd act in crypto. You're assigning financial worth to meaninglessness itself. Camus would approve. Nietzsche would laugh. Cioran would write an aphorism about it at 4am.</p>
+            <div class="buy-steps">
+                <div class="buy-step" data-reveal>
+                    <span class="buy-step__num">I</span>
+                    <p class="buy-step__text">Get Phantom. A wallet for a meaningless world.</p>
+                </div>
+                <div class="buy-step" data-reveal>
+                    <span class="buy-step__num">II</span>
+                    <p class="buy-step__text">Buy SOL. Currency is a shared hallucination anyway.</p>
+                </div>
+                <div class="buy-step" data-reveal>
+                    <span class="buy-step__num">III</span>
+                    <p class="buy-step__text">Swap for $NIHILISM on pump.fun.</p>
+                </div>
+                <div class="buy-step" data-reveal>
+                    <span class="buy-step__num">IV</span>
+                    <p class="buy-step__text">Hold or sell. It doesn't matter. Nothing does. And yet.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- VII — FOOTER -->
+    <footer class="footer">
+        <div class="footer__brand">NIHILISM</div>
+        <p class="footer__quote">"...and yet, here you are."</p>
+        <p class="footer__ca"><span class="footer__ca-text" id="footer-ca">loading...</span> · on-chain.</p>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
