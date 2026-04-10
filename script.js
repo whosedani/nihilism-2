@@ -3,7 +3,15 @@ document.addEventListener('DOMContentLoaded', () => {
     initScrollReveal();
     initSoundToggle();
     initCopy();
+    initVideo();
 });
+
+/* ===== VIDEO AUTOPLAY ===== */
+function initVideo() {
+    const video = document.getElementById('hero-video');
+    if (!video) return;
+    video.play().catch(() => {});
+}
 
 /* ===== CONFIG ===== */
 function loadConfig() {

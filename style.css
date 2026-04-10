@@ -462,18 +462,18 @@ a { color: inherit; text-decoration: none; }
 
 /* ===== GALLERY ===== */
 .gallery-grid {
-    columns: 3;
-    column-gap: 6px;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 6px;
     margin-top: 32px;
 }
 
 .gallery-img {
     width: 100%;
-    margin-bottom: 6px;
+    height: 300px;
     object-fit: cover;
     filter: grayscale(0.7) brightness(0.9);
     transition: filter 0.5s;
-    break-inside: avoid;
 }
 .gallery-img:hover {
     filter: grayscale(0) brightness(1);
@@ -598,7 +598,7 @@ a { color: inherit; text-decoration: none; }
     }
 
     .gallery-grid {
-        columns: 2;
+        grid-template-columns: repeat(2, 1fr);
     }
 
     .column-line { display: none; }
@@ -608,5 +608,5 @@ a { color: inherit; text-decoration: none; }
     .hero__actions { flex-direction: column; align-items: center; }
     .btn { width: 200px; text-align: center; }
     .section { padding: 60px 0; }
-    .gallery-grid { columns: 2; }
+    .gallery-grid { grid-template-columns: repeat(2, 1fr); }
 }
