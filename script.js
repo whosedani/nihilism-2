@@ -31,9 +31,9 @@ function loadConfig() {
                 document.getElementById('btn-buy').target = '_blank';
                 document.getElementById('btn-buy').rel = 'noopener';
             }
-            if (cfg.community) {
-                document.getElementById('btn-community').href = cfg.community;
-                document.getElementById('nav-community').href = cfg.community;
+            if (cfg.twitter) {
+                document.getElementById('btn-community').href = cfg.twitter;
+                document.getElementById('nav-community').href = cfg.twitter;
             }
         })
         .catch(() => {});
