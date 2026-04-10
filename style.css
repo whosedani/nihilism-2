@@ -263,7 +263,7 @@ a { color: inherit; text-decoration: none; }
     display: flex;
     align-items: center;
     gap: 8px;
-    padding: 6px 14px;
+    padding: 10px 20px;
     border: 1px solid var(--steel);
     border-radius: 999px;
     background: rgba(22, 22, 25, 0.6);
@@ -273,11 +273,11 @@ a { color: inherit; text-decoration: none; }
     color: var(--ash);
     font-family: var(--font-body);
     font-style: italic;
-    font-size: 12px;
+    font-size: 15px;
     transition: border-color 0.3s;
 }
 .sound-btn:hover { border-color: var(--marble); }
-.sound-btn__icon { font-size: 15px; line-height: 1; }
+.sound-btn__icon { font-size: 18px; line-height: 1; }
 
 /* ===== SECTIONS ===== */
 .section {
