@@ -17,14 +17,15 @@ export default async function handler(req, res) {
             headers: { Authorization: `Bearer ${KV_TOKEN}` }
         });
         const data = await r.json();
-        return data.result ? JSON.parse(data.result) : {};
+        const raw = data.result || data.value;
+        if (!raw) return {};
+        try { return JSON.parse(raw); } catch { return {}; }
     }
 
     async function kvSet(val) {
-        await fetch(`${KV_URL}/set/${KEY}`, {
+        await fetch(`${KV_URL}/set/${KEY}/${encodeURIComponent(JSON.stringify(val))}`, {
             method: 'POST',
-            headers: { Authorization: `Bearer ${KV_TOKEN}`, 'Content-Type': 'application/json' },
-            body: JSON.stringify({ value: JSON.stringify(val) })
+            headers: { Authorization: `Bearer ${KV_TOKEN}` }
         });
     }
 

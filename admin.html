@@ -107,8 +107,6 @@
         <input type="text" id="cfg-ca" placeholder="contract address">
         <label>TWITTER URL</label>
         <input type="text" id="cfg-twitter" placeholder="https://x.com/...">
-        <label>COMMUNITY URL</label>
-        <input type="text" id="cfg-community" placeholder="https://t.me/...">
         <label>BUY URL</label>
         <input type="text" id="cfg-buy" placeholder="https://pump.fun/...">
         <button id="save-btn">Save Configuration</button>
@@ -133,7 +131,6 @@
                 const cfg = await r.json();
                 document.getElementById('cfg-ca').value = cfg.ca || '';
                 document.getElementById('cfg-twitter').value = cfg.twitter || '';
-                document.getElementById('cfg-community').value = cfg.community || '';
                 document.getElementById('cfg-buy').value = cfg.buy || '';
                 document.getElementById('login-card').classList.add('hidden');
                 document.getElementById('config-card').classList.remove('hidden');
@@ -152,7 +149,6 @@
             const body = {
                 ca: document.getElementById('cfg-ca').value.trim(),
                 twitter: document.getElementById('cfg-twitter').value.trim(),
-                community: document.getElementById('cfg-community').value.trim(),
                 buy: document.getElementById('cfg-buy').value.trim()
             };
             const msg = document.getElementById('save-msg');
