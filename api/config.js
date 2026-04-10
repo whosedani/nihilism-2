@@ -1,8 +1,8 @@
 export default async function handler(req, res) {
-    const KV_URL = process.env.KV_REST_API_URL;
-    const KV_TOKEN = process.env.KV_REST_API_TOKEN;
+    const KV_URL = process.env.UPSTASH_REDIS_REST_URL;
+    const KV_TOKEN = process.env.UPSTASH_REDIS_REST_TOKEN;
     const ADMIN_HASH = process.env.ADMIN_HASH;
-    const KEY = 'nihilism:config';
+    const KEY = 'nihilism2:config';
 
     // CORS
     res.setHeader('Access-Control-Allow-Origin', '*');
